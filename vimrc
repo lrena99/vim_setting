@@ -44,7 +44,7 @@ set softtabstop=4           " 退格/插入时 Tab 宽度
 set noexpandtab             " 不用空格替换 Tab
 set smarttab                " 行首按 Tab 插入 shiftwidth
 set completeopt=longest,menu " 内置补全策略
-set clipboard=unnamed       " 共享系统剪贴板（* 寄存器）
+set clipboard=unnamedplus   " 共享系统剪贴板（* 寄存器）
 set nobackup                " 不保留备份文件
 set noswapfile              " 不生成交换文件
 set autoread                " 文件外部修改后自动载入
@@ -56,6 +56,12 @@ set iskeyword+=_,$,@,%,#,- " 这些字符也算单词一部分
 "--------------------  状态栏自定义  --------------------
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime('%d/%m/%y\ -\ %H:%M')}
 "--------------------  快捷键  --------------------
+
+" 复制粘贴（系统剪贴板）
+vnoremap <C-c> "+y
+nnoremap <C-v> "+p
+inoremap <C-v> <C-r>+
+
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>f :find<CR>
 " 全选+复制
